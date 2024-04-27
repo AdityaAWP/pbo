@@ -11,10 +11,10 @@ import gradle.components.inputs.SelectInput;
 import gradle.components.outputs.HLine;
 import gradle.components.outputs.Label;
 import gradle.components.outputs.Space;
+import gradle.models.DataPassword;
+import gradle.models.PasswordStore;
 import gradle.pages.InputPage;
 import gradle.pages.MainPage;
-import models.DataPassword;
-import models.PasswordStore;
 
 // import java.security.NoSuchAlgorithmException;
 
@@ -33,8 +33,9 @@ public class App {
 
     public static void main(String[] args) {
         try {
-            new MainPage("Main Page", 50).draw();
             DataPassword.loadCSVData();
+            MainPage mainPage = new MainPage(80);
+            mainPage.draw();
 
             // Your application logic here (e.g., password input, display)
             // Use DataPassword.passData to manage password data

@@ -1,6 +1,8 @@
 package gradle.components.inputs;
 
-public class SelectInput {
+import gradle.components.outputs.Drawable;
+
+public class SelectInput implements Drawable {
     private String label;
     private int width;
     private String[] selection;

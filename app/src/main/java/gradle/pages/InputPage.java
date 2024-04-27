@@ -7,22 +7,25 @@ import gradle.components.inputs.SelectInput;
 import gradle.components.outputs.HLine;
 import gradle.components.outputs.Label;
 import gradle.components.outputs.Space;
-import models.DataPassword;
-import models.PasswordStore;
+import gradle.models.PasswordStore;
+import gradle.models.DataPassword;
 
-public class InputPage {
-    public String title;
-    public int width;
-    private final HLine hline;
-    private final Space space;
-    private final Label label;
+public class InputPage extends BasePage {
+    Input inputName = new Input("Judul Password");
+    Input inputUsername = new Input("Username");
+    Input inputPass = new Input("Password");
+    SelectInput inpCategory;
+    PasswordStore pass;
 
-    public InputPage(String title, int width) {
-        this.title = title;
-        this.width = width;
-        this.hline = new HLine(width);
-        this.space = new Space(width);
-        this.label = new Label(width, title.toUpperCase());
+    public InputPage(int width) {
+        super("Inputan Password", width);
+        this.inpCategory = new SelectInput("Kategori", this.width, PasswordStore.CATEGORIES);
+        this.components.add(this.inputName);
+        this.components.add(this.inputUsername);
+        this.components.add(this.inputPass);
+        this.components.add(this.inpCategory);
+        this.components.add(new Label(this.width, "----- -----"));
+        this.components.add(new Label(this.width, "Input password berhasil dibuat"));
     }
 
     public void draw() {
@@ -68,6 +71,6 @@ public class InputPage {
         new Label(50, "Input Password berhasil dibuat").draw();
         new Space(50).draw();
         new HLine(50).draw();
-        new MainPage("Main Page", width).draw();
+        new MainPage(width).draw();
     }
 }

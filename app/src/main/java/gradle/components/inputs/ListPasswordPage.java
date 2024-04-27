@@ -5,23 +5,17 @@ import java.util.ArrayList;
 import gradle.components.outputs.HLine;
 import gradle.components.outputs.Label;
 import gradle.components.outputs.Space;
+import gradle.models.DataPassword;
+import gradle.models.PasswordStore;
+import gradle.pages.BasePage;
 import gradle.pages.MainPage;
-import models.DataPassword;
-import models.PasswordStore;
 
-public class ListPasswordPage {
+public class ListPasswordPage extends BasePage {
     public String title;
     public int width;
-    private final HLine hline;
-    private final Space space;
-    private final Label label;
 
-    public ListPasswordPage(String title, int width) {
-        this.title = title;
-        this.width = width;
-        this.hline = new HLine(width);
-        this.space = new Space(width);
-        this.label = new Label(width, title.toUpperCase());
+    public ListPasswordPage(int width) {
+        super("List Password", width);
     }
 
     public void draw() {
@@ -72,6 +66,6 @@ public class ListPasswordPage {
     public void drawFooter() {
         this.space.draw();
         this.hline.draw();
-        new MainPage("Main Page", width).draw();
+        new MainPage(width).draw();
     }
 }

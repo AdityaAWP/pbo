@@ -1,4 +1,4 @@
-package models;
+package gradle.models;
 
 import java.io.FileWriter;
 import java.io.*;

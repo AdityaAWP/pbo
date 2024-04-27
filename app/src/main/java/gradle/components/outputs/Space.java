@@ -1,6 +1,6 @@
 package gradle.components.outputs;
 
-public class Space {
+public class Space implements Drawable {
     private int width;
 
     public Space(int width) {

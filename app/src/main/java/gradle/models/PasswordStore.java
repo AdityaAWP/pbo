@@ -1,4 +1,4 @@
-package models;
+package gradle.models;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import gradle.Encryptor;
+import gradle.pages.BasePage;
 
 public class PasswordStore {
     public String name, username;

@@ -2,7 +2,9 @@ package gradle.components.inputs;
 
 import java.util.Scanner;
 
-public class Input {
+import gradle.components.outputs.Drawable;
+
+public class Input implements Drawable {
     private String label;
     private Scanner input;
     private String value;

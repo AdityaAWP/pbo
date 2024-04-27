@@ -2,7 +2,7 @@ package gradle.components.outputs;
 
 import javax.sound.sampled.Line;
 
-public class HLine {
+public class HLine implements Drawable {
     private int width;
 
     public HLine(int width) {
