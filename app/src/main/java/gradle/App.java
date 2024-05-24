@@ -4,7 +4,9 @@
 package gradle;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import gradle.GUI.MahasiswaGUI;
 import gradle.components.inputs.Input;
 import gradle.components.inputs.ListPasswordPage;
 import gradle.components.inputs.SelectInput;
@@ -12,9 +14,13 @@ import gradle.components.outputs.HLine;
 import gradle.components.outputs.Label;
 import gradle.components.outputs.Space;
 import gradle.models.DataPassword;
+import gradle.models.Mahasiswa;
 import gradle.models.PasswordStore;
 import gradle.pages.InputPage;
 import gradle.pages.MainPage;
+
+import java.awt.EventQueue;
+import java.util.ArrayList;
 
 // import java.security.NoSuchAlgorithmException;
 
@@ -36,12 +42,24 @@ public class App {
             DataPassword.loadCSVData();
             MainPage mainPage = new MainPage(80);
             mainPage.draw();
+            DataPassword.saveCSVData();
 
+            // Menampilkan Data Mahasiswa
+            ArrayList<Mahasiswa> mahasiswaList = Loader.csvMhsLoad();
+            MahasiswaApp app = new MahasiswaApp();
+            System.out.println("Sorted by name:");
+            List<Mahasiswa> sortedByName = app.sort(1);
+            sortedByName.forEach(System.out::println);
+
+            // GUI data Mahasiswa
+            ArrayList<Mahasiswa> dataMhs = Loader.csvMhsLoad();
+            MahasiswaGUI gui = new MahasiswaGUI(dataMhs);
+            EventQueue.invokeLater(() -> gui.setVisible(true));
             // Your application logic here (e.g., password input, display)
             // Use DataPassword.passData to manage password data
 
             // Save password data on exit (before exiting the application)
-            DataPassword.saveCSVData();
+
             // new InputPage("Inputan Pas", 50).draw();
             // // new InputPage("Inssp", 50).draw();
             // new ListPasswordPage("gE", 50).drawContent();
