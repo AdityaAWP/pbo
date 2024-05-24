@@ -33,7 +33,7 @@ public class MahasiswaGUI extends JFrame {
         getContentPane().add(scrollPane, BorderLayout.CENTER);
 
         // Tambahkan ComboBox untuk memilih kriteria pengurutan
-        JComboBox<String> sortComboBox = new JComboBox<>(new String[] { "NIM", "Nama Mahasiswa", "IPK" });
+        JComboBox<String> sortComboBox = new JComboBox<>(new String[] { "NIM", "Nama", "IPK" });
         sortComboBox.addActionListener(e -> {
             String selectedSort = (String) sortComboBox.getSelectedItem();
             if (selectedSort != null) {
