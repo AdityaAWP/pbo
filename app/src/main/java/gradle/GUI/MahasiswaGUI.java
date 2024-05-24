@@ -18,6 +18,7 @@ public class MahasiswaGUI extends JFrame {
     public MahasiswaGUI(ArrayList<Mahasiswa> dataMhs) {
         this.dataMhs = dataMhs;
         initializeGUI();
+        sortData("NIM");
         displayData(dataMhs);
     }
 
