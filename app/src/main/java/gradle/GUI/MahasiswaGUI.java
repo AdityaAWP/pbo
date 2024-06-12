@@ -18,7 +18,6 @@ public class MahasiswaGUI extends JFrame {
     public MahasiswaGUI(ArrayList<Mahasiswa> dataMhs) {
         this.dataMhs = dataMhs;
         initializeGUI();
-        sortData("NIM"); // Mengurutkan data berdasarkan NIM saat GUI pertama kali dijalankan
         displayData(dataMhs);
     }
 
