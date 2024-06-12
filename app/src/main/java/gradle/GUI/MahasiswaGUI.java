@@ -18,6 +18,7 @@ public class MahasiswaGUI extends JFrame {
     public MahasiswaGUI(ArrayList<Mahasiswa> dataMhs) {
         this.dataMhs = dataMhs;
         initializeGUI();
+        sortData("NIM"); // Mengurutkan data berdasarkan NIM saat GUI pertama kali dijalankan
         displayData(dataMhs);
     }
 
@@ -53,7 +54,7 @@ public class MahasiswaGUI extends JFrame {
 
         // Menambahkan data mahasiswa ke dalam tabel
         for (Mahasiswa mhs : data) {
-            tableModel.addRow(new Object[] { mhs.getNim(), mhs.getNama(), mhs.getSksTotal(), mhs.getIpk() });
+            tableModel.addRow(new Object[] { mhs.getNim(), mhs.getNama(), mhs.getTotalSks(), mhs.getIpk() });
         }
     }
 
@@ -70,4 +71,5 @@ public class MahasiswaGUI extends JFrame {
         // Menampilkan data yang sudah diurutkan
         displayData(dataMhs);
     }
+
 }
